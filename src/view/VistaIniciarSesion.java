@@ -39,7 +39,7 @@ public class VistaIniciarSesion extends javax.swing.JFrame {
         btnIniciarSesion = new javax.swing.JButton();
         jblMensajeUsuario = new javax.swing.JLabel();
         jblMensajeContraseña = new javax.swing.JLabel();
-        txtContraseña = new javax.swing.JTextField();
+        txtContraseña = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -61,7 +61,8 @@ public class VistaIniciarSesion extends javax.swing.JFrame {
         jblMensajeContraseña.setForeground(new java.awt.Color(255, 0, 0));
         jblMensajeContraseña.setText("contraseña incorrecta");
 
-        txtContraseña.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtContraseña.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtContraseña.setText("jPasswordField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,14 +71,13 @@ public class VistaIniciarSesion extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(278, 278, 278)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jblMensajeContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jblMensajeUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jblContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)))
+                    .addComponent(jblMensajeContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jblMensajeUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jblContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                    .addComponent(txtContraseña))
                 .addContainerGap(276, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -91,13 +91,13 @@ public class VistaIniciarSesion extends javax.swing.JFrame {
                 .addComponent(jblMensajeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jblContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
+                .addGap(15, 15, 15)
                 .addComponent(jblMensajeContraseña)
                 .addGap(24, 24, 24)
                 .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(167, Short.MAX_VALUE))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         pack();
@@ -142,7 +142,7 @@ public class VistaIniciarSesion extends javax.swing.JFrame {
     }
 
     public String getTxtContraseña() {
-        return txtContraseña.getText();
+        return String.valueOf(txtContraseña.getPassword());
     }
 
     public  String getTxtUsuario() {
@@ -167,7 +167,7 @@ public class VistaIniciarSesion extends javax.swing.JFrame {
     private javax.swing.JLabel jblMensajeContraseña;
     private javax.swing.JLabel jblMensajeUsuario;
     private javax.swing.JLabel jblUsuario;
-    private javax.swing.JTextField txtContraseña;
+    private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

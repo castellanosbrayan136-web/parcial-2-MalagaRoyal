@@ -2,16 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package parcial2;
+package app;
 
+import com.formdev.flatlaf.intellijthemes.FlatGruvboxDarkHardIJTheme;
 import view.ScreenManager;
 
 /**
  * @author Brayan C
  */
 
-public class Parcial2 {
+public class Main {
     public static void main(String[] args) {
+        FlatGruvboxDarkHardIJTheme.setup();
         ScreenManager.abrirLogin();
     }
 }
