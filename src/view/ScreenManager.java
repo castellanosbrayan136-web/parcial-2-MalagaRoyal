@@ -5,7 +5,6 @@
 package view;
 
 import controller.ControladorJuego;
-import controller.ControladorRuleta;
 import controller.ControladorVistaCrearCuenta;
 import controller.ControladorVistaIniciarSesion;
 import controller.ControladorVistaLogin;
@@ -70,24 +69,7 @@ public class ScreenManager {
     }
     
     public static void cerrarJuego(VistaJuego vistaJuego) {
-        vistaJuego.setVisible(false);
+        vistaJuego.dispose();
         abrirLogin();
-    }
-    
-    public static void abrirRuleta(VistaJuego vistaJuego) {
-        vistaJuego.setVisible(false);
-        VistaIniciarSesion vistaIniciarSesion = new VistaIniciarSesion();
-        VistaRuleta vistaRuleta = new VistaRuleta();
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
-        ControladorVistaIniciarSesion controladorIniciarSesion = new ControladorVistaIniciarSesion(vistaIniciarSesion, usuarioDAO);
-        
-        new ControladorRuleta(controladorIniciarSesion, vistaRuleta, usuarioDAO);
-        
-        vistaRuleta.setVisible(true);
-    }
-    
-    public static void cerrarRuleta(VistaRuleta vistaRuleta,VistaIniciarSesion vistaIniciarSesion) {
-        vistaRuleta.setVisible(false);
-        abrirJuego(vistaIniciarSesion);
     }
 }

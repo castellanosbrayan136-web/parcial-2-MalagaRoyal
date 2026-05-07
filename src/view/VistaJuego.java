@@ -33,8 +33,6 @@ public class VistaJuego extends javax.swing.JFrame {
 
         btnRecargar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btnIngresarJuego = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
         jblSaldo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -46,14 +44,6 @@ public class VistaJuego extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setText("BIENVENIDO!");
-
-        btnIngresarJuego.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnIngresarJuego.setText("Ingresar a juego");
-        btnIngresarJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        btnSalir.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnSalir.setText("Salir");
-        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jblSaldo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jblSaldo.setText("Saldo actual: ");
@@ -68,18 +58,11 @@ public class VistaJuego extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnRecargar, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
-                .addComponent(btnIngresarJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(114, 114, 114))
+                .addGap(114, 578, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jblSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(263, 263, 263)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jblSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(324, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,13 +70,9 @@ public class VistaJuego extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(50, 50, 50)
                 .addComponent(jblSaldo)
-                .addGap(95, 95, 95)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRecargar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnIngresarJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(80, 80, 80)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addGap(153, 153, 153)
+                .addComponent(btnRecargar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(285, Short.MAX_VALUE))
         );
 
         pack();
@@ -125,16 +104,8 @@ public class VistaJuego extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new VistaJuego().setVisible(true));
     }
 
-    public JButton getBtnIngresarJuego() {
-        return btnIngresarJuego;
-    }
-
     public JButton getBtnRecargar() {
         return btnRecargar;
-    }
-
-    public JButton getBtnSalir() {
-        return btnSalir;
     }
 
     public void setJblSaldo(String jblSaldo) {
@@ -144,9 +115,7 @@ public class VistaJuego extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnIngresarJuego;
     private javax.swing.JButton btnRecargar;
-    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jblSaldo;
     // End of variables declaration//GEN-END:variables
