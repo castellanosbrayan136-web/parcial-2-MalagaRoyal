@@ -41,12 +41,12 @@ public class VistaLogin extends javax.swing.JFrame {
         btnIniciarSesion.setBackground(new java.awt.Color(153, 153, 255));
         btnIniciarSesion.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnIniciarSesion.setText("Iniciar Sesion");
-        btnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         btnCrearCuenta.setBackground(new java.awt.Color(153, 153, 255));
         btnCrearCuenta.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnCrearCuenta.setText("Crear cuenta");
-        btnCrearCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCrearCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setBackground(new java.awt.Color(51, 153, 255));
         jLabel1.setForeground(new java.awt.Color(51, 102, 255));
@@ -70,16 +70,16 @@ public class VistaLogin extends javax.swing.JFrame {
                         .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(281, 281, 281))
             .addGroup(layout.createSequentialGroup()
-                .addGap(181, 181, 181)
+                .addGap(198, 198, 198)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(53, 53, 53)
                 .addComponent(jLabel2)
-                .addGap(64, 64, 64)
+                .addGap(46, 46, 46)
                 .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addComponent(btnCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
