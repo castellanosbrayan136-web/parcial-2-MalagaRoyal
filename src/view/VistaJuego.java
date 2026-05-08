@@ -36,6 +36,7 @@ public class VistaJuego extends javax.swing.JFrame {
         btnRecargar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jblSaldo = new javax.swing.JLabel();
+        txtSaldoActual = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         spnNumeroSeleccionado = new javax.swing.JSpinner();
         jLabel4 = new javax.swing.JLabel();
@@ -43,6 +44,7 @@ public class VistaJuego extends javax.swing.JFrame {
         txtMontoApuesta = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        txtNumeroGanador = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -76,6 +78,8 @@ public class VistaJuego extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("GANASTE!!");
 
+        txtNumeroGanador.setText("jTextField1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,6 +111,10 @@ public class VistaJuego extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jblSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtNumeroGanador, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(350, 350, 350))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,7 +123,9 @@ public class VistaJuego extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jblSaldo)
-                .addGap(103, 103, 103)
+                .addGap(42, 42, 42)
+                .addComponent(txtNumeroGanador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,5 +201,7 @@ public class VistaJuego extends javax.swing.JFrame {
     private javax.swing.JLabel jblSaldo;
     private javax.swing.JSpinner spnNumeroSeleccionado;
     private javax.swing.JTextField txtMontoApuesta;
+    private javax.swing.JTextField txtNumeroGanador;
+    private javax.swing.JTextField txtSaldoActual;
     // End of variables declaration//GEN-END:variables
 }

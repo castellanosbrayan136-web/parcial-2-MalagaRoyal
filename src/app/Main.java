@@ -4,7 +4,7 @@
  */
 package app;
 
-import com.formdev.flatlaf.intellijthemes.FlatGruvboxDarkHardIJTheme;
+//import com.formdev.flatlaf.intellijthemes.FlatGruvboxDarkHardIJTheme;
 import view.ScreenManager;
 
 /**
@@ -13,7 +13,7 @@ import view.ScreenManager;
 
 public class Main {
     public static void main(String[] args) {
-        FlatGruvboxDarkHardIJTheme.setup();
+//        FlatGruvboxDarkHardIJTheme.setup();
         ScreenManager.abrirLogin();
     }
 }
