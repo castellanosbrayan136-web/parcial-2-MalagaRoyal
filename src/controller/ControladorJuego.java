@@ -49,9 +49,26 @@ public class ControladorJuego implements ActionListener{
         } 
     }
     
-    public void recargar() {
-        Usuario usuario = controladorIniciarSesion.iniciarSesion();
+    public int generarNumeroRandom() {
+        return (int) (Math.random() * 37) ;
+    }
+    
+    public void apostar() {
+        int numeroRandom = generarNumeroRandom();
+        int numeroDeSpin = vistaJuego.getSpnNumeroSeleccionado();
         
+        if (numeroDeSpin == numeroRandom) {
+            System.out.println("Ganaste");
+        }
+        
+        
+        
+        }
+    
+    
+    
+    public void recargar() {
+        Usuario usuario = controladorIniciarSesion.iniciarSesion();    
         try {
             String txtRecarga = JOptionPane.showInputDialog("Ingresa el monto a recargar.");
             double recarga = Double.parseDouble(txtRecarga);
