@@ -36,7 +36,7 @@ public class VistaJuego extends javax.swing.JFrame {
 
         btnRecargar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jblTextoSaldo = new javax.swing.JLabel();
+        jblSaldo = new javax.swing.JLabel();
         txtSaldoActual = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         spnNumeroSeleccionado = new javax.swing.JSpinner();
@@ -46,121 +46,118 @@ public class VistaJuego extends javax.swing.JFrame {
         jblNumeroGenerado = new javax.swing.JLabel();
         jblResultado = new javax.swing.JLabel();
         btnApostar = new javax.swing.JButton();
-        jblSaldo = new javax.swing.JLabel();
+        jblUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         btnRecargar.setBackground(new java.awt.Color(102, 153, 255));
-        btnRecargar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnRecargar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnRecargar.setText("Recargar");
-        btnRecargar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnRecargar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRecargar.addActionListener(this::btnRecargarActionPerformed);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setText("BIENVENIDO!");
 
-        jblTextoSaldo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jblTextoSaldo.setText("Saldo Actual: ");
+        jblSaldo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jblSaldo.setText("Saldo Actual: ");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Selecciona tu numero: ");
 
         spnNumeroSeleccionado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         spnNumeroSeleccionado.setModel(new javax.swing.SpinnerNumberModel(1, 1, 36, 1));
+        spnNumeroSeleccionado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("ingrese el monto a apostar:");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel6.setText("Tu numeron es:");
 
         jblNumeroGenerado.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jblNumeroGenerado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jblNumeroGenerado.setText("8");
 
-        jblResultado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jblResultado.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jblResultado.setForeground(new java.awt.Color(255, 255, 51));
         jblResultado.setText("GANASTE!!");
 
         btnApostar.setBackground(new java.awt.Color(102, 153, 255));
-        btnApostar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnApostar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnApostar.setText("Apostar");
+        btnApostar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnApostar.addActionListener(this::btnApostarActionPerformed);
 
-        jblSaldo.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jblUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jblUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/icons8-usuario-50.png"))); // NOI18N
+        jblUsuario.setText("Usuario");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(0, 570, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnRecargar, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jblTextoSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(77, 77, 77)))
-                .addGap(46, 46, 46)
-                .addComponent(btnApostar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jblSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(163, 163, 163)
+                        .addComponent(btnRecargar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnApostar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 85, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(spnNumeroSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtMonto)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel6)
-                                .addComponent(jblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(spnNumeroSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jblNumeroGenerado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jblResultado)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jblNumeroGenerado, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(16, 16, 16)))
-                        .addGap(81, 81, 81))))
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jblSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(39, 39, 39))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jblTextoSaldo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jblSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jblNumeroGenerado, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(spnNumeroSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addComponent(jblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(jblResultado)))
-                .addGap(23, 23, 23)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(24, 24, 24)))
+                .addComponent(jblSaldo)
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jblNumeroGenerado, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spnNumeroSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jblResultado)
+                    .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRecargar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnApostar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(83, 83, 83))
         );
 
         pack();
@@ -210,25 +207,34 @@ public class VistaJuego extends javax.swing.JFrame {
     }
     
 
-    public int getJblSaldo() {
-        return (int) Double.parseDouble(jblSaldo.getText());
-    }
+    
     public void setJblSaldo(String saldo){
-        this.jblSaldo.setText(saldo);
+        this.jblSaldo.setText("Saldo actual: " + saldo);
     }
+    
     public JButton getBtnApostar(){
         return btnApostar;
     }
+    
     public String getTxtMonto(){
         return txtMonto.getText();
     }
+    
     public void setJblNumeroGenerado(String numero){
         this.jblNumeroGenerado.setText(numero);
     }
+    
     public void setJblResultado(String texto,Color color){
         this.jblResultado.setText(texto);
         this.jblResultado.setForeground(color);
     }
+
+    public void setJblUsuario(String jblUsuario) {
+        this.jblUsuario.setText(jblUsuario);
+    }
+
+    
+    
     
     
 
@@ -242,7 +248,7 @@ public class VistaJuego extends javax.swing.JFrame {
     private javax.swing.JLabel jblNumeroGenerado;
     private javax.swing.JLabel jblResultado;
     private javax.swing.JLabel jblSaldo;
-    private javax.swing.JLabel jblTextoSaldo;
+    private javax.swing.JLabel jblUsuario;
     private javax.swing.JSpinner spnNumeroSeleccionado;
     private javax.swing.JTextField txtMonto;
     private javax.swing.JTextField txtSaldoActual;

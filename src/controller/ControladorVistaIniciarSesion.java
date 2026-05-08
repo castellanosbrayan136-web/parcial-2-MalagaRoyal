@@ -26,6 +26,7 @@ public class ControladorVistaIniciarSesion implements ActionListener{
         this.vistaIniciarSesion = vistaIniciarSesion;
         this.usuarioDAO = usuarioDAO;
         activarBotones();
+        vistaIniciarSesion.setJblMensajeContraseña("");
     }
     
     public void activarBotones() {
@@ -52,7 +53,7 @@ public class ControladorVistaIniciarSesion implements ActionListener{
         Usuario usuario = usuarioDAO.verificarInicioDeSesion(leerUsuario(), leerContraseña());
         
         if (usuario == null) {
-            JOptionPane.showMessageDialog(vistaIniciarSesion, "Cuenta no encontrada.");
+            vistaIniciarSesion.setJblMensajeContraseña("Usuario o contraseña incorrecta.");
             return null;
         }
         
@@ -61,8 +62,10 @@ public class ControladorVistaIniciarSesion implements ActionListener{
     }
     
     public void abrirUsuario() {
-        if (iniciarSesion() != null) {
-            ScreenManager.abrirJuego(vistaIniciarSesion);
+        Usuario usuario = iniciarSesion();
+        
+        if (usuario != null) {
+            ScreenManager.abrirJuego(vistaIniciarSesion, usuario);
         }
     }
     

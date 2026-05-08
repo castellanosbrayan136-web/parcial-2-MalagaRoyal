@@ -62,7 +62,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Iniciar Sesion"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor de Mano"/>
         </Property>
       </Properties>
     </Component>
@@ -76,7 +76,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Crear cuenta"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor de Mano"/>
         </Property>
       </Properties>
     </Component>

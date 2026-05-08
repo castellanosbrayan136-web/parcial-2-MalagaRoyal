@@ -40,12 +40,12 @@ public class VistaLogin extends javax.swing.JFrame {
         btnIniciarSesion.setBackground(new java.awt.Color(153, 153, 255));
         btnIniciarSesion.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnIniciarSesion.setText("Iniciar Sesion");
-        btnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnCrearCuenta.setBackground(new java.awt.Color(153, 153, 255));
         btnCrearCuenta.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnCrearCuenta.setText("Crear cuenta");
-        btnCrearCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnCrearCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel1.setBackground(new java.awt.Color(51, 153, 255));
         jLabel1.setForeground(new java.awt.Color(51, 102, 255));

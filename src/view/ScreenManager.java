@@ -8,6 +8,7 @@ import controller.ControladorJuego;
 import controller.ControladorVistaCrearCuenta;
 import controller.ControladorVistaIniciarSesion;
 import controller.ControladorVistaLogin;
+import model.Usuario;
 import model.UsuarioDAO;
 
 /**
@@ -57,13 +58,12 @@ public class ScreenManager {
         abrirLogin();
     }
     
-    public static void abrirJuego(VistaIniciarSesion vistaIniciarSesion) {
+    public static void abrirJuego(VistaIniciarSesion vistaIniciarSesion, Usuario usuario) {
         vistaIniciarSesion.setVisible(false);
         VistaJuego vistaJuego = new VistaJuego();
         UsuarioDAO usuarioDAO = new UsuarioDAO();
-        ControladorVistaIniciarSesion controladorIniciarSesion = new ControladorVistaIniciarSesion(vistaIniciarSesion, usuarioDAO);
         
-        new ControladorJuego(controladorIniciarSesion, vistaJuego, usuarioDAO);
+        new ControladorJuego(usuario, vistaJuego, usuarioDAO);
         
         vistaJuego.setVisible(true);
     }

@@ -50,12 +50,16 @@ public class ControladorVistaCrearCuenta implements ActionListener{
     }
     
     public void crearCuenta() {
+        if (!usuarioDAO.verficarNombre(leerDatos())) {
+            vistaCrearCuenta.setJblMensajeNombreUsuario("Nombre de usuario ya en uso intenta con otro.");
+            return;
+        }
+        
         if (usuarioDAO.crearUsuario(leerDatos())) {
             JOptionPane.showMessageDialog(vistaCrearCuenta, "Usuario creado con exito.");
             ScreenManager.cerrarCrearCuenta(vistaCrearCuenta);
         } else {
-            JOptionPane.showMessageDialog(vistaCrearCuenta, "Usuario ya existente, o error en los datos.");
-            ScreenManager.cerrarCrearCuenta(vistaCrearCuenta); //Deberia ir limpiar espacios
+            JOptionPane.showMessageDialog(vistaCrearCuenta, "Completa los datos.");
         }
     }
     

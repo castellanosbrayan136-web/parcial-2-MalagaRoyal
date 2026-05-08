@@ -20,20 +20,27 @@ import view.VistaJuego;
  * @author UIS
  */
 public class ControladorJuego implements ActionListener{
-    private ControladorVistaIniciarSesion controladorIniciarSesion;
+    Usuario usuario;
     VistaJuego vistaJuego;
     UsuarioDAO usuarioDAO;
 
-    public ControladorJuego(ControladorVistaIniciarSesion controladorIniciarSesion, VistaJuego vistaJuego, UsuarioDAO usuarioDAO) {
-        this.controladorIniciarSesion = controladorIniciarSesion;
+    public ControladorJuego(Usuario usuario, VistaJuego vistaJuego, UsuarioDAO usuarioDAO) {
+        this.usuario = usuario;
         this.vistaJuego = vistaJuego;
         this.usuarioDAO = usuarioDAO;
         activarBotones();
+        iniciarDatos();
+    }
+    
+    public void iniciarDatos() {
+        vistaJuego.setJblSaldo(String.valueOf(usuario.getSaldo()));
+        vistaJuego.setJblUsuario(usuario.getNombre());
     }
     
     public void activarBotones() {
         vistaJuego.getBtnRecargar().addActionListener(this);
         vistaJuego.getBtnApostar().addActionListener(this);
+        funcionBotonX();
     }
     
     public void funcionBotonX() {
@@ -59,45 +66,71 @@ public class ControladorJuego implements ActionListener{
     }
     
     public void apostar() {
+        
+        if (vistaJuego.getTxtMonto().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(vistaJuego, "Ingresa un monto a apostar.");
+            return;
+        }
         int numeroRandom = generarNumeroRandom();
         int numeroDeSpin = vistaJuego.getSpnNumeroSeleccionado();
-        int saldoActual = vistaJuego.getJblSaldo();
-        int montoApostado = Integer.parseInt(vistaJuego.getTxtMonto());
+        
+        double saldoActual = usuario.getSaldo();
+        double montoApostado;
+        
+        try {
+            montoApostado = Double.parseDouble(vistaJuego.getTxtMonto());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(vistaJuego, "Ingresa un monto valido a apostar.");
+            return;
+        }
+        
         vistaJuego.setJblNumeroGenerado(String.valueOf(numeroRandom));
         
         if (montoApostado > saldoActual){
-            vistaJuego.setJblResultado("saldo insuficiente", Color.ORANGE);
+            JOptionPane.showMessageDialog(vistaJuego, "Fondos insuficientes.");
             return;
         }
         
         if (numeroDeSpin == numeroRandom) {
-            int nuevoSaldo = saldoActual + montoApostado;
+            double nuevoSaldo = saldoActual + montoApostado*35;
+            usuario.setSaldo(nuevoSaldo);
+            
             vistaJuego.setJblSaldo(String.valueOf(nuevoSaldo));
+            
             vistaJuego.setJblResultado("GANASTE!!!", Color.yellow);
         }else{
-            int nuevoSaldo = saldoActual - montoApostado;
+            double nuevoSaldo = saldoActual - montoApostado;
+            usuario.setSaldo(nuevoSaldo);
+            
             vistaJuego.setJblSaldo(String.valueOf(nuevoSaldo));
+            
             vistaJuego.setJblResultado("PERDISTE!!", Color.RED);
         }
-     
-    
-        }
+    }
     
     
     
-    public void recargar() {
-        Usuario usuario = controladorIniciarSesion.iniciarSesion();    
+    public void recargar() {  
         try {
             String txtRecarga = JOptionPane.showInputDialog("Ingresa el monto a recargar.");
+            
+            if (txtRecarga == null) {
+                return;
+            }
+            
             double recarga = Double.parseDouble(txtRecarga);
-            vistaJuego.setJblSaldo(String.valueOf(usuario.getSaldo() + recarga));
-            usuarioDAO.actualizarSaldo((usuario.getSaldo() + recarga), usuario);
+            
+            if (recarga > 0) {
+                vistaJuego.setJblSaldo(String.valueOf(usuario.getSaldo() + recarga));
+                usuarioDAO.actualizarSaldo((usuario.getSaldo() + recarga), usuario);
+            } else {
+                JOptionPane.showMessageDialog(vistaJuego, "Ingresa un monto valido de recarga.");
+            }
+            
             
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(vistaJuego, "Ingresa un numero valido!.");
         }
-        
-        
     }
     
     

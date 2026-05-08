@@ -15,17 +15,22 @@ public class UsuarioDAO {
     public static List<Usuario> usuarios = new ArrayList<>();
     
     public boolean crearUsuario(Usuario usuarioACrear) {
+        
+        
+        if (usuarioACrear.getNombre().trim().isEmpty() || usuarioACrear.getContraseña().trim().isEmpty() || usuarioACrear.getCedula().trim().isEmpty() || usuarioACrear.getTelefono().trim().isEmpty() || usuarioACrear.getDireccion().trim().isEmpty()) {
+            return false;
+        }
+        
+        usuarios.add(usuarioACrear);
+        return true;
+    }
+    
+    public boolean verficarNombre(Usuario usuarioACrear) {
         for (Usuario usuario: usuarios) {
             if (usuario.getNombre().equals(usuarioACrear.getNombre())) {
                 return false;
             }
         }
-        
-        if (usuarioACrear.getNombre().trim().isEmpty() || usuarioACrear.getContraseña().trim().isEmpty() || usuarioACrear.getCedula().trim().isEmpty()) {
-            return false;
-        }
-        
-        usuarios.add(usuarioACrear);
         return true;
     }
     
