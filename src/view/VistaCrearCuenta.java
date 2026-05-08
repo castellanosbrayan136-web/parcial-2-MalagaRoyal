@@ -49,16 +49,16 @@ public class VistaCrearCuenta extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        jblNombreDeUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jblNombreDeUsuario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jblNombreDeUsuario.setText("Nombre de usuario:");
 
         txtNombreUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtNombreUsuario.addActionListener(this::txtNombreUsuarioActionPerformed);
 
-        jblContraseña.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jblContraseña.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jblContraseña.setText("Contraseña:");
 
-        jblTelefono.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jblTelefono.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jblTelefono.setText("Telefono:");
 
         txtCedula.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -66,16 +66,17 @@ public class VistaCrearCuenta extends javax.swing.JFrame {
         txtTelefono.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtTelefono.addActionListener(this::txtTelefonoActionPerformed);
 
-        jblCedula.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jblCedula.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jblCedula.setText("Cedula:");
 
-        jblMensajeNombreUsuario.setForeground(new java.awt.Color(255, 0, 0));
+        jblMensajeNombreUsuario.setForeground(new java.awt.Color(51, 102, 255));
         jblMensajeNombreUsuario.setText("Nombre de usuario ya existe, intenta con otro");
 
+        btnCrearCuenta.setBackground(new java.awt.Color(153, 153, 255));
         btnCrearCuenta.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCrearCuenta.setText("Crear Cuenta");
 
-        jblDireccion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jblDireccion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jblDireccion.setText("Direccion:");
 
         txtDireccion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -94,7 +95,6 @@ public class VistaCrearCuenta extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jblMensajeNombreUsuario)
                             .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jblNombreDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jblTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jblContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -103,7 +103,8 @@ public class VistaCrearCuenta extends javax.swing.JFrame {
                             .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(txtContraseña, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtCedula, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))))
+                                .addComponent(txtCedula, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
+                            .addComponent(jblNombreDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(290, 290, 290)
                         .addComponent(btnCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))

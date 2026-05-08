@@ -4,6 +4,7 @@
  */
 package controller;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -32,6 +33,7 @@ public class ControladorJuego implements ActionListener{
     
     public void activarBotones() {
         vistaJuego.getBtnRecargar().addActionListener(this);
+        vistaJuego.getBtnApostar().addActionListener(this);
     }
     
     public void funcionBotonX() {
@@ -45,8 +47,11 @@ public class ControladorJuego implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vistaJuego.getBtnRecargar()) {
-            recargar();
+             recargar();
         } 
+        if (e.getSource() == vistaJuego.getBtnApostar()){
+            apostar();
+        }
     }
     
     public int generarNumeroRandom() {
@@ -56,13 +61,26 @@ public class ControladorJuego implements ActionListener{
     public void apostar() {
         int numeroRandom = generarNumeroRandom();
         int numeroDeSpin = vistaJuego.getSpnNumeroSeleccionado();
+        int saldoActual = vistaJuego.getJblSaldo();
+        int montoApostado = Integer.parseInt(vistaJuego.getTxtMonto());
+        vistaJuego.setJblNumeroGenerado(String.valueOf(numeroRandom));
         
-        if (numeroDeSpin == numeroRandom) {
-            System.out.println("Ganaste");
+        if (montoApostado > saldoActual){
+            vistaJuego.setJblResultado("saldo insuficiente", Color.ORANGE);
+            return;
         }
         
-        
-        
+        if (numeroDeSpin == numeroRandom) {
+            int nuevoSaldo = saldoActual + montoApostado;
+            vistaJuego.setJblSaldo(String.valueOf(nuevoSaldo));
+            vistaJuego.setJblResultado("GANASTE!!!", Color.yellow);
+        }else{
+            int nuevoSaldo = saldoActual - montoApostado;
+            vistaJuego.setJblSaldo(String.valueOf(nuevoSaldo));
+            vistaJuego.setJblResultado("PERDISTE!!", Color.RED);
+        }
+     
+    
         }
     
     

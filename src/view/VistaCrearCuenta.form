@@ -31,7 +31,6 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jblMensajeNombreUsuario" min="-2" max="-2" attributes="0"/>
                           <Component id="txtNombreUsuario" min="-2" pref="230" max="-2" attributes="0"/>
-                          <Component id="jblNombreDeUsuario" alignment="0" min="-2" pref="167" max="-2" attributes="0"/>
                           <Component id="jblTelefono" min="-2" pref="167" max="-2" attributes="0"/>
                           <Component id="jblContraseña" min="-2" pref="167" max="-2" attributes="0"/>
                           <Component id="txtTelefono" min="-2" pref="230" max="-2" attributes="0"/>
@@ -42,6 +41,7 @@
                               <Component id="txtContraseña" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtCedula" alignment="0" pref="230" max="32767" attributes="0"/>
                           </Group>
+                          <Component id="jblNombreDeUsuario" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -89,7 +89,7 @@
     <Component class="javax.swing.JLabel" name="jblNombreDeUsuario">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
+          <Font name="Segoe UI" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Nombre de usuario:"/>
       </Properties>
@@ -107,7 +107,7 @@
     <Component class="javax.swing.JLabel" name="jblContrase&#xf1;a">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
+          <Font name="Segoe UI" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
       </Properties>
@@ -115,7 +115,7 @@
     <Component class="javax.swing.JLabel" name="jblTelefono">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
+          <Font name="Segoe UI" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Telefono:"/>
       </Properties>
@@ -140,7 +140,7 @@
     <Component class="javax.swing.JLabel" name="jblCedula">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
+          <Font name="Segoe UI" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cedula:"/>
       </Properties>
@@ -148,13 +148,16 @@
     <Component class="javax.swing.JLabel" name="jblMensajeNombreUsuario">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="ff" type="rgb"/>
+          <Color blue="ff" green="66" red="33" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Nombre de usuario ya existe, intenta con otro"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnCrearCuenta">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="99" red="99" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
         </Property>
@@ -164,7 +167,7 @@
     <Component class="javax.swing.JLabel" name="jblDireccion">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
+          <Font name="Segoe UI" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Direccion:"/>
       </Properties>
