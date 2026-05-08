@@ -74,6 +74,11 @@ public class ControladorJuego implements ActionListener{
         int numeroRandom = generarNumeroRandom();
         int numeroDeSpin = vistaJuego.getSpnNumeroSeleccionado();
         
+        if (numeroDeSpin == -1) {
+            JOptionPane.showMessageDialog(vistaJuego, "Numero de apuesta invalido, (0 - 36).");
+            return;
+        }
+        
         double saldoActual = usuario.getSaldo();
         double montoApostado;
         

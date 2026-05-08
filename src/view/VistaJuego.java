@@ -202,8 +202,11 @@ public class VistaJuego extends javax.swing.JFrame {
     }
     
     public int getSpnNumeroSeleccionado(){
-        return Integer.parseInt(spnNumeroSeleccionado.getValue().toString());
-    
+        try {
+            return Integer.parseInt(spnNumeroSeleccionado.getValue().toString());
+        } catch (NumberFormatException ex) {
+            return -1;
+        }
     }
     
 
