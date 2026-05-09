@@ -16,6 +16,7 @@ public class VistaHistorialCasino extends javax.swing.JFrame {
      */
     public VistaHistorialCasino() {
         initComponents();
+
     }
 
     /**
@@ -139,8 +140,6 @@ public class VistaHistorialCasino extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
         new VistaHistorialCasino().setVisible(true);
         });
-    }
-    
 
     
 
