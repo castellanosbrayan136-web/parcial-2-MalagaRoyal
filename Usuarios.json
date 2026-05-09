@@ -5,6 +5,22 @@
     "cedula": "f",
     "telefono": "f",
     "direccion": "f",
-    "saldo": 126.0
+    "saldo": 4.890000000000002
+  },
+  {
+    "nombre": "Maria 007",
+    "contraseña": "la que sea",
+    "cedula": "1097694246",
+    "telefono": "3127557594",
+    "direccion": "Malaga",
+    "saldo": 88000.0
+  },
+  {
+    "nombre": "Brayan C",
+    "contraseña": "123",
+    "cedula": "123123",
+    "telefono": "123",
+    "direccion": "123",
+    "saldo": 0.0
   }
 ]
