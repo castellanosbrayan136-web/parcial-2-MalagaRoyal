@@ -4,12 +4,11 @@
  */
 package view;
 
-import java.awt.Color;
-
 /**
  *
  * @author USUARIO
  */
+
 public class VistaHistorialCasino extends javax.swing.JFrame {
 
     /**
@@ -17,8 +16,6 @@ public class VistaHistorialCasino extends javax.swing.JFrame {
      */
     public VistaHistorialCasino() {
         initComponents();
-        setLocationRelativeTo(null);
-        cargarDatosCasino();
     }
 
     /**
@@ -31,73 +28,68 @@ public class VistaHistorialCasino extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jblGanancia = new javax.swing.JLabel();
+        jblGananciaCasino = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblUsuarios = new javax.swing.JTable();
-        btnCerrar = new javax.swing.JButton();
+        tablaHistorial = new javax.swing.JTable();
+        jblLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Ganancia neta del casino:");
+        jblGananciaCasino.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jblGananciaCasino.setText("Ganancia neta del casino:");
 
-        jblGanancia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jblGanancia.setText("$");
-
-        tblUsuarios.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+        tablaHistorial.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        tablaHistorial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Usuario", "Total Apostado", "Ganancia/Perdida", "Estado"
+                "Usuario", "Numero apostado", "Numero ganador", "Monto apostado", "Ganancia/Perdida"
             }
-        ));
-        jScrollPane1.setViewportView(tblUsuarios);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
 
-        btnCerrar.setBackground(new java.awt.Color(153, 153, 255));
-        btnCerrar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnCerrar.setText("Cerrar");
-        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCerrarActionPerformed(evt);
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
             }
         });
+        jScrollPane1.setViewportView(tablaHistorial);
+
+        jblLogo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/icons8-casino-100 (2).png"))); // NOI18N
+        jblLogo.setText("MalgaRoyal");
+        jblLogo.setIconTextGap(30);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jblGanancia, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCerrar)
-                .addGap(225, 225, 225))
+                    .addComponent(jScrollPane1)
+                    .addComponent(jblGananciaCasino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 55, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jblGanancia, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(btnCerrar)
-                .addGap(38, 38, 38))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jblGananciaCasino, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -108,15 +100,14 @@ public class VistaHistorialCasino extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCerrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,7 +132,6 @@ public class VistaHistorialCasino extends javax.swing.JFrame {
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(VistaHistorialCasino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaHistorialCasino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -149,38 +139,16 @@ public class VistaHistorialCasino extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
         new VistaHistorialCasino().setVisible(true);
         });
-
-        public void cargarDatosCasino(){
-       
-
-      int GananciaTotal = dao.getGananciaNetaCasino();
-if(GananciaTotal >= 0){
-jblGanancia.setForeground(Color.red);
-jblGanancia.setText("$ " + GananciaTotal + "Ganando");
-
-} else {
-jblGanancia.setForeground(Color.red);
-jblGanancia.setText("$ " + Math.abs(GananciaTotal) + "Perdiendo");
-
-
-
-
-}
-tblUsuarios.setModel(dao.getTablaUsuarios());
-
-
-}
-
-}
+    }
+    
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCerrar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel jblGanancia;
-    private javax.swing.JTable tblUsuarios;
+    private javax.swing.JLabel jblGananciaCasino;
+    private javax.swing.JLabel jblLogo;
+    private javax.swing.JTable tablaHistorial;
     // End of variables declaration//GEN-END:variables
 }

@@ -78,7 +78,7 @@ public class Usuario {
     }
 
     public void setSaldo(double saldo) {
-        if (saldo > 0) {
+        if (saldo >= 0) {
             this.saldo = saldo;
         }
     }
