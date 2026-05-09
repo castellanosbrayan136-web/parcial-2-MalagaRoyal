@@ -18,7 +18,7 @@ public class VistaHistorialCasino extends javax.swing.JFrame {
     public VistaHistorialCasino() {
         initComponents();
         setLocationRelativeTo(null);
-        cargarDatosCasino();
+        
     }
 
     /**
@@ -150,26 +150,9 @@ public class VistaHistorialCasino extends javax.swing.JFrame {
         new VistaHistorialCasino().setVisible(true);
         });
 
-        public void cargarDatosCasino(){
        
 
-      int GananciaTotal = dao.getGananciaNetaCasino();
-if(GananciaTotal >= 0){
-jblGanancia.setForeground(Color.red);
-jblGanancia.setText("$ " + GananciaTotal + "Ganando");
 
-} else {
-jblGanancia.setForeground(Color.red);
-jblGanancia.setText("$ " + Math.abs(GananciaTotal) + "Perdiendo");
-
-
-
-
-}
-tblUsuarios.setModel(dao.getTablaUsuarios());
-
-
-}
 
 }
 
