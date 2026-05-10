@@ -76,6 +76,7 @@ public class UsuarioDAO {
     
     public Usuario verificarInicioDeSesion(String nombreUsuario,String contraseña) {
         for (Usuario usuario: usuarios) {
+            
             if (usuario.getNombre().equals(nombreUsuario) && usuario.getContraseña().equals(contraseña)) {
                 return usuario;
             }

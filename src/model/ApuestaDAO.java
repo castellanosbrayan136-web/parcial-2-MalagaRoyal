@@ -29,41 +29,48 @@ public final class ApuestaDAO {
     private final Gson gson;
     private final String ruta = "Apuestas.json";
 
-    public ApuestaDAO() throws IOException {
+    public ApuestaDAO() {
+        
         gson = new GsonBuilder().setPrettyPrinting().create();
         apuestas = new ArrayList<>();
         cargarDatos();
     }
 
-    public void cargarDatos() throws IOException {
-        File archivo = new File(ruta);
-        if (!archivo.exists()) {
-            Files.write(Paths.get(ruta), "[]".getBytes());
+    public void cargarDatos() {
+        try {
+            File archivo = new File(ruta);
+            if (!archivo.exists()) {
+                Files.write(Paths.get(ruta), "[]".getBytes());
+                apuestas = new ArrayList<>();
+                return;
+            }
+            String json = new String(Files.readAllBytes(Paths.get(ruta)));
+            Type listType = new TypeToken<ArrayList<Apuesta>>(){}.getType();
+            apuestas = gson.fromJson(json, listType);
+            if (apuestas == null) {
+                apuestas = new ArrayList<>();
+            }
+        } catch (IOException ex) {
             apuestas = new ArrayList<>();
-            return;
         }
-        String json = new String(Files.readAllBytes(Paths.get(ruta)));
-        Type listType = new TypeToken<ArrayList<Apuesta>>(){}.getType();
-        apuestas = gson.fromJson(json, listType);
-        if (apuestas == null) {
-            apuestas = new ArrayList<>();
+        
+    }
+
+    public void guardarDatos() {
+        try (FileWriter writer = new FileWriter(ruta)) {
+            gson.toJson(apuestas, writer);
+        } catch (IOException e) {
+            System.out.println("Error al guardar los datos: " + e.getMessage());
         }
     }
 
-    public void guardarDatos() throws IOException {
-        try (FileWriter writer = new FileWriter(ruta)) {
-            gson.toJson(apuestas, writer);
-        }    }
-
-    public void registrarApuesta(Apuesta apuesta) throws IOException {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        apuesta.setFecha(dtf.format(LocalDateTime.now()));
+    public void registrarApuesta(Apuesta apuesta) {
         apuestas.add(apuesta);
         guardarDatos();
     }
     
     
-    public List<Apuesta> obtenerApuestas() {
+    public List<Apuesta> retornarApuestas() {
         return apuestas;
     }
     

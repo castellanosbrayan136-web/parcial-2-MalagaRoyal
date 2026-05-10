@@ -3,18 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/view/VistaHistorialCasino.java</file>
             <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/view/VistaJuego.java</file>
+            <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/model/UsuarioDAO.java</file>
+            <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/model/ApuestaDAO.java</file>
+            <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/model/Apuesta.java</file>
+            <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/model/Usuario.java</file>
+            <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/controller/ControladorApuesta.java</file>
             <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/controller/ControladorJuego.java</file>
-            <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/view/VistaCrearCuenta.java</file>
-            <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/view/VistaIniciarSesion.java</file>
-            <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/view/ScreenManager.java</file>
-            <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/view/VistaLogin.java</file>
-            <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/app/Main.java</file>
             <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/controller/ControladorVistaCrearCuenta.java</file>
             <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/controller/ControladorVistaIniciarSesion.java</file>
-            <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/model/Usuario.java</file>
-            <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/model/UsuarioDAO.java</file>
-            <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/view/VistaHistorialCasino.java</file>
+            <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/view/ScreenManager.java</file>
+            <file>file:/C:/Users/caste/Documents/parcial-2-MalagaRoyal/src/app/Main.java</file>
         </group>
     </open-files>
 </project-private>

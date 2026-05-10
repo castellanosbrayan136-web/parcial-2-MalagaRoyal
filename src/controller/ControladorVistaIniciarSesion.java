@@ -64,9 +64,17 @@ public class ControladorVistaIniciarSesion implements ActionListener{
     public void abrirUsuario() {
         Usuario usuario = iniciarSesion();
         
-        if (usuario != null) {
+        if (usuario == null) {
+            return;
+        }
+        
+        if (usuario.getNombre().equals("Admin") && usuario.getContraseña().equals("admin")) {
+            ScreenManager.abrirHistorialApuestas(vistaIniciarSesion);
+        } else {
             ScreenManager.abrirJuego(vistaIniciarSesion, usuario);
         }
+        
+        
     }
     
     public String leerUsuario() {

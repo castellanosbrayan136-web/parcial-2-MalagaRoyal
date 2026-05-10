@@ -4,6 +4,9 @@
  */
 package view;
 
+import javax.swing.JLabel;
+import javax.swing.JTable;
+
 /**
  *
  * @author USUARIO
@@ -34,25 +37,26 @@ public class VistaHistorialCasino extends javax.swing.JFrame {
         tablaHistorial = new javax.swing.JTable();
         jblLogo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jblGananciaCasino.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jblGananciaCasino.setText("Ganancia neta del casino:");
 
-        tablaHistorial.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        tablaHistorial.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tablaHistorial.setForeground(new java.awt.Color(0, 0, 0));
         tablaHistorial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Usuario", "Numero apostado", "Numero ganador", "Monto apostado", "Ganancia/Perdida"
+                "Usuario", "Numero apostado", "Numero ganador", "Monto apostado", "Ganancia/Perdida", "Fecha y hora"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -77,19 +81,19 @@ public class VistaHistorialCasino extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addComponent(jblGananciaCasino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 55, Short.MAX_VALUE)))
+                        .addComponent(jblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 906, Short.MAX_VALUE)
+                        .addGap(55, 55, 55)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jblGananciaCasino, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -108,6 +112,7 @@ public class VistaHistorialCasino extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -140,6 +145,17 @@ public class VistaHistorialCasino extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
         new VistaHistorialCasino().setVisible(true);
         });
+    }
+
+    public JTable getTablaHistorial() {
+        return tablaHistorial;
+    }
+
+    public void setJblGananciaCasino(String jblGananciaCasino) {
+        this.jblGananciaCasino.setText("Ganancia neta del casino: " + jblGananciaCasino);
+    }
+    
+    
 
     
 

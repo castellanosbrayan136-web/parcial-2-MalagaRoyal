@@ -19,8 +19,8 @@ import view.VistaCrearCuenta;
  * @author UIS
  */
 public class ControladorVistaCrearCuenta implements ActionListener{
-    UsuarioDAO usuarioDAO;
-    VistaCrearCuenta vistaCrearCuenta;
+    private UsuarioDAO usuarioDAO;
+    private VistaCrearCuenta vistaCrearCuenta;
 
     public ControladorVistaCrearCuenta(UsuarioDAO usuarioDAO, VistaCrearCuenta vistaCrearCuenta) {
         this.usuarioDAO = usuarioDAO;

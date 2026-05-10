@@ -16,6 +16,9 @@ public class Usuario {
     private String direccion;
     private double saldo;
 
+    public Usuario() {
+    }
+
     public Usuario(String nombre, String contraseña, String cedula, String telefono, String direccion) {
         this.nombre = nombre;
         this.contraseña = contraseña;

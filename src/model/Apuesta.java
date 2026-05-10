@@ -4,19 +4,34 @@
  */
 package model;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author USUARIO
  */
+
 public class Apuesta {
     private String nombreUsuario;
     private int numeroApostado;
     private int numeroGanador;
-    private int montoApodtado;
-    private int gananciaPerdida;
+    private double montoApostado;
+    private double gananciaPerdida;
+    private LocalDateTime horaApuesta;
 
     public Apuesta() {
     }
+
+    public Apuesta(String nombreUsuario, int numeroApostado, int numeroGanador, double montoApostado, double gananciaPerdida, LocalDateTime horaApuesta) {
+        this.nombreUsuario = nombreUsuario;
+        this.numeroApostado = numeroApostado;
+        this.numeroGanador = numeroGanador;
+        this.montoApostado = montoApostado;
+        this.gananciaPerdida = gananciaPerdida;
+        this.horaApuesta = horaApuesta;
+    }
+    
+    
 
     public String getNombreUsuario() {
         return nombreUsuario;
@@ -42,30 +57,32 @@ public class Apuesta {
         this.numeroGanador = numeroGanador;
     }
 
-    public int getMontoApodtado() {
-        return montoApodtado;
+    public double getMontoApostado() {
+        return montoApostado;
     }
 
-    public void setMontoApodtado(int montoApodtado) {
-        this.montoApodtado = montoApodtado;
+    public void setMontoApodtado(double montoApodtado) {
+        this.montoApostado = montoApodtado;
     }
 
-    public int getGananciaPerdida() {
+    public double getGananciaPerdida() {
         return gananciaPerdida;
     }
 
-    public void setGananciaPerdida(int gananciaPerdida) {
+    public void setGananciaPerdida(double gananciaPerdida) {
         this.gananciaPerdida = gananciaPerdida;
+    }
+
+    public LocalDateTime getHoraApuesta() {
+        return horaApuesta;
+    }
+
+    public void setHoraApuesta(LocalDateTime horaApuesta) {
+        this.horaApuesta = horaApuesta;
     }
 
     @Override
     public String toString() {
-        return "Apuesta{" + "nombreUsuario=" + nombreUsuario + ", numeroApostado=" + numeroApostado + ", numeroGanador=" + numeroGanador + ", montoApodtado=" + montoApodtado + ", gananciaPerdida=" + gananciaPerdida + '}';
+        return "Apuesta{" + "nombreUsuario=" + nombreUsuario + ", numeroApostado=" + numeroApostado + ", numeroGanador=" + numeroGanador + ", montoApodtado=" + montoApostado + ", gananciaPerdida=" + gananciaPerdida + '}';
     }
-
-    void setFecha(String format) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-    
 }

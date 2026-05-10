@@ -9,11 +9,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import model.Apuesta;
+import model.ApuestaDAO;
 import model.Usuario;
 import model.UsuarioDAO;
 import view.ScreenManager;
+import view.VistaHistorialCasino;
 import view.VistaJuego;
 
 /**
@@ -22,14 +27,16 @@ import view.VistaJuego;
  */
 
 public class ControladorJuego implements ActionListener{
-    Usuario usuario;
-    VistaJuego vistaJuego;
-    UsuarioDAO usuarioDAO;
+    private Usuario usuario;
+    private VistaJuego vistaJuego;
+    private UsuarioDAO usuarioDAO;
+    private ApuestaDAO apuestaDAO;
 
-    public ControladorJuego(Usuario usuario, VistaJuego vistaJuego, UsuarioDAO usuarioDAO) {
+    public ControladorJuego(Usuario usuario, VistaJuego vistaJuego, UsuarioDAO usuarioDAO, ApuestaDAO apuestaDAO) {
         this.usuario = usuario;
         this.vistaJuego = vistaJuego;
         this.usuarioDAO = usuarioDAO;
+        this.apuestaDAO = apuestaDAO;
         activarBotones();
         iniciarDatos();
         vistaJuego.setJblResultado("RESULTADO", Color.black);
@@ -43,10 +50,10 @@ public class ControladorJuego implements ActionListener{
     public void activarBotones() {
         vistaJuego.getBtnRecargar().addActionListener(this);
         vistaJuego.getBtnApostar().addActionListener(this);
-        funcionBotonX();
+        funcionBotonXJuego();
     }
     
-    public void funcionBotonX() {
+    public void funcionBotonXJuego() {
         vistaJuego.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -54,6 +61,8 @@ public class ControladorJuego implements ActionListener{
             }
         });
     }
+    
+    
     
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -132,9 +141,15 @@ public class ControladorJuego implements ActionListener{
                     usuarioDAO.actualizarSaldo(nuevoSaldo, usuario);
 
                     vistaJuego.setJblSaldo(String.valueOf(nuevoSaldo));
+                    
+                    double perdida = montoApostado * -35;
+                    
+                    Apuesta apuesta = new Apuesta(usuario.getNombre(), numeroApostado, numeroGanador, montoApostado, perdida, LocalDateTime.now());
+                    
+                    apuestaDAO.registrarApuesta(apuesta);
 
                     vistaJuego.setJblResultado("GANASTE!!!", Color.yellow);
-                }else{
+                }else {
                     double nuevoSaldo2 = saldoActual - montoApostado;
 
                     usuario.setSaldo(nuevoSaldo2);
@@ -142,6 +157,12 @@ public class ControladorJuego implements ActionListener{
                     usuarioDAO.actualizarSaldo(nuevoSaldo2, usuario);
 
                     vistaJuego.setJblSaldo(String.valueOf(nuevoSaldo2));
+                    
+                    double ganancia = montoApostado;
+                    
+                    Apuesta apuesta = new Apuesta(usuario.getNombre(), numeroApostado, numeroGanador, montoApostado, ganancia, LocalDateTime.now());
+                    
+                    apuestaDAO.registrarApuesta(apuesta);
 
                     vistaJuego.setJblResultado("PERDISTE!!", Color.RED);
                 }
