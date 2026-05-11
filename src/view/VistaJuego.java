@@ -49,24 +49,20 @@ public class VistaJuego extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
-        btnRecargar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jblSaldo = new javax.swing.JLabel();
         txtSaldoActual = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        spnNumeroSeleccionado = new javax.swing.JSpinner();
-        jLabel4 = new javax.swing.JLabel();
-        txtMonto = new javax.swing.JTextField();
+        bakground = new javax.swing.JPanel();
+        jblResultado = new javax.swing.JLabel();
+        jblNumeroGenerado = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         btnApostar = new javax.swing.JButton();
         jblUsuario = new javax.swing.JLabel();
-        jPanel13 = new javax.swing.JPanel();
-        jblResultado = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jblNumeroGenerado = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        btnRecargar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        spnNumeroSeleccionado = new javax.swing.JSpinner();
+        jblSaldo = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtMontoApostado = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         jFrame1.setResizable(false);
@@ -253,200 +249,75 @@ public class VistaJuego extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        btnRecargar.setBackground(new java.awt.Color(102, 153, 255));
-        btnRecargar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnRecargar.setText("Recargar");
-        btnRecargar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRecargar.addActionListener(this::btnRecargarActionPerformed);
+        bakground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setText("BIENVENIDO!");
+        jblResultado.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jblResultado.setForeground(new java.awt.Color(255, 255, 51));
+        jblResultado.setText("GANASTE!!");
+        bakground.add(jblResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, -1, -1));
 
-        jblSaldo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jblSaldo.setText("Saldo Actual: ");
+        jblNumeroGenerado.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jblNumeroGenerado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jblNumeroGenerado.setText("8");
+        jblNumeroGenerado.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 10, 10, 10, new java.awt.Color(0, 0, 0)));
+        bakground.add(jblNumeroGenerado, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, 170, 150));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("Selecciona tu numero: ");
-
-        spnNumeroSeleccionado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        spnNumeroSeleccionado.setModel(new javax.swing.SpinnerNumberModel(0, 0, 36, 1));
-        spnNumeroSeleccionado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setText("ingrese el monto a apostar:");
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel6.setText("Tu numero es:");
+        bakground.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, 200, 29));
 
         btnApostar.setBackground(new java.awt.Color(102, 153, 255));
         btnApostar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnApostar.setText("Apostar");
         btnApostar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnApostar.addActionListener(this::btnApostarActionPerformed);
+        bakground.add(btnApostar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, 200, 60));
 
         jblUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jblUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/icons8-usuario-50.png"))); // NOI18N
         jblUsuario.setText("Usuario");
+        bakground.add(jblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 270, 63));
 
-        jblResultado.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jblResultado.setForeground(new java.awt.Color(255, 255, 51));
-        jblResultado.setText("GANASTE!!");
+        btnRecargar.setBackground(new java.awt.Color(102, 153, 255));
+        btnRecargar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnRecargar.setText("Recargar");
+        btnRecargar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRecargar.addActionListener(this::btnRecargarActionPerformed);
+        bakground.add(btnRecargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 480, 200, 60));
 
-        jPanel5.setBackground(new java.awt.Color(0, 0, 153));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setText("BIENVENIDO!");
+        bakground.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 190, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
+        spnNumeroSeleccionado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        spnNumeroSeleccionado.setModel(new javax.swing.SpinnerNumberModel(0, 0, 36, 1));
+        spnNumeroSeleccionado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bakground.add(spnNumeroSeleccionado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 134, 37));
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 153));
+        jblSaldo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jblSaldo.setText("Saldo Actual: ");
+        bakground.add(jblSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 440, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
-        );
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setText("Selecciona tu numero: ");
+        bakground.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+        bakground.add(txtMontoApostado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 186, 34));
 
-        jblNumeroGenerado.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jblNumeroGenerado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jblNumeroGenerado.setText("8");
-
-        jPanel1.setBackground(new java.awt.Color(0, 0, 204));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
-        );
-
-        jPanel2.setBackground(new java.awt.Color(0, 0, 153));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel6.setText("Tu numero es:");
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jblNumeroGenerado, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jblResultado)))
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jblNumeroGenerado, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jblResultado))
-        );
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setText("ingrese el monto a apostar:");
+        bakground.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jblSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addComponent(spnNumeroSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(230, 230, 230)
-                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(39, 39, 39))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(147, 147, 147)
-                .addComponent(btnRecargar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnApostar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(bakground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(9, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(24, 24, 24)))
-                .addComponent(jblSaldo)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jLabel3)
-                        .addGap(7, 7, 7)
-                        .addComponent(spnNumeroSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(99, 99, 99))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnApostar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRecargar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(90, 90, 90))
+            .addComponent(bakground, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         pack();
@@ -506,8 +377,6 @@ public class VistaJuego extends javax.swing.JFrame {
         }
     }
     
-
-    
     public void setJblSaldo(String saldo){
         this.jblSaldo.setText("Saldo actual: " + saldo);
     }
@@ -516,8 +385,13 @@ public class VistaJuego extends javax.swing.JFrame {
         return btnApostar;
     }
     
-    public String getTxtMonto(){
-        return txtMonto.getText();
+    public Double getDblMonto(){
+        try {
+            return Double.valueOf(txtMontoApostado.getText());
+        } catch (NumberFormatException ex) {
+            return -1.0;
+        }
+        
     }
     
     public void setJblNumeroGenerado(String numero){
@@ -532,13 +406,9 @@ public class VistaJuego extends javax.swing.JFrame {
     public void setJblUsuario(String jblUsuario) {
         this.jblUsuario.setText(jblUsuario);
     }
-
     
-    
-    
-    
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel bakground;
     private javax.swing.JButton btnApostar;
     private javax.swing.JButton btnApostar1;
     private javax.swing.JButton btnRecargar;
@@ -552,14 +422,9 @@ public class VistaJuego extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel jblNumeroGenerado;
     private javax.swing.JLabel jblNumeroGenerado1;
@@ -571,8 +436,8 @@ public class VistaJuego extends javax.swing.JFrame {
     private javax.swing.JLabel jblUsuario1;
     private javax.swing.JSpinner spnNumeroSeleccionado;
     private javax.swing.JSpinner spnNumeroSeleccionado1;
-    private javax.swing.JTextField txtMonto;
     private javax.swing.JTextField txtMonto1;
+    private javax.swing.JTextField txtMontoApostado;
     private javax.swing.JTextField txtSaldoActual;
     private javax.swing.JTextField txtSaldoActual1;
     // End of variables declaration//GEN-END:variables

@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import model.Apuesta;
@@ -18,7 +17,6 @@ import model.ApuestaDAO;
 import model.Usuario;
 import model.UsuarioDAO;
 import view.ScreenManager;
-import view.VistaHistorialCasino;
 import view.VistaJuego;
 
 /**
@@ -27,10 +25,10 @@ import view.VistaJuego;
  */
 
 public class ControladorJuego implements ActionListener{
-    private Usuario usuario;
-    private VistaJuego vistaJuego;
-    private UsuarioDAO usuarioDAO;
-    private ApuestaDAO apuestaDAO;
+    private final Usuario usuario;
+    private final VistaJuego vistaJuego;
+    private final UsuarioDAO usuarioDAO;
+    private final ApuestaDAO apuestaDAO;
 
     public ControladorJuego(Usuario usuario, VistaJuego vistaJuego, UsuarioDAO usuarioDAO, ApuestaDAO apuestaDAO) {
         this.usuario = usuario;
@@ -39,21 +37,21 @@ public class ControladorJuego implements ActionListener{
         this.apuestaDAO = apuestaDAO;
         activarBotones();
         iniciarDatos();
-        vistaJuego.setJblResultado("RESULTADO", Color.black);
     }
     
     public void iniciarDatos() {
         vistaJuego.setJblSaldo(String.valueOf(usuario.getSaldo()));
         vistaJuego.setJblUsuario(usuario.getNombre());
+        vistaJuego.setJblResultado("", Color.black);
     }
     
     public void activarBotones() {
         vistaJuego.getBtnRecargar().addActionListener(this);
         vistaJuego.getBtnApostar().addActionListener(this);
-        funcionBotonXJuego();
+        funcionBotonX();
     }
     
-    public void funcionBotonXJuego() {
+    public void funcionBotonX() {
         vistaJuego.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -61,8 +59,6 @@ public class ControladorJuego implements ActionListener{
             }
         });
     }
-    
-    
     
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -79,39 +75,23 @@ public class ControladorJuego implements ActionListener{
     }
     
     public void apostar() {
-        
         vistaJuego.setJblResultado("", Color.yellow);
         
-        if (vistaJuego.getTxtMonto().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(vistaJuego, "Ingresa un monto a apostar.");
-            return;
-        }
-        int numeroRandom = generarNumeroRandom();
-        int numeroDeSpin = vistaJuego.getSpnNumeroSeleccionado();
+        int numeroGanador = generarNumeroRandom();
+        int numeroApostado = vistaJuego.getSpnNumeroSeleccionado();
+        double montoApostado = vistaJuego.getDblMonto();
         
-        if (numeroDeSpin == -1) {
-            JOptionPane.showMessageDialog(vistaJuego, "Numero de apuesta invalido, (0 - 36).");
+        if (montoApostado == -1.0) {
+            JOptionPane.showMessageDialog(vistaJuego, "Ingresa un monto a apostar valido.");
             return;
         }
         
-        double saldoActual = usuario.getSaldo();
-        double montoApostado;
-        
-        try {
-            montoApostado = Double.parseDouble(vistaJuego.getTxtMonto());
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(vistaJuego, "Ingresa un monto valido a apostar.");
-            return;
-        }
-        
-        if (montoApostado > saldoActual){
+        if (montoApostado > usuario.getSaldo()){
             JOptionPane.showMessageDialog(vistaJuego, "Fondos insuficientes.");
             return;
         }
         
-        animarRuleta(numeroRandom, numeroDeSpin, montoApostado);
-        
-        
+        animarRuleta(numeroGanador, numeroApostado, montoApostado);
     }
     
     
@@ -135,36 +115,46 @@ public class ControladorJuego implements ActionListener{
                 double saldoActual = usuario.getSaldo();
                 
                 if (numeroApostado == numeroGanador) {
+                    vistaJuego.setJblResultado("GANASTE!!!", Color.yellow);
+                    
                     double nuevoSaldo = saldoActual + montoApostado*35;
                     
+                    usuario.setSaldo(nuevoSaldo);
+                    usuarioDAO.actualizarSaldo(nuevoSaldo, usuario);
+                    
+                    vistaJuego.setJblSaldo(String.valueOf(nuevoSaldo));
+                    
+                    double perdidaCasino = montoApostado * -35;
+                    
+                    Apuesta apuesta = new Apuesta(
+                            usuario.getNombre(), 
+                            numeroApostado, 
+                            numeroGanador, 
+                            montoApostado,
+                            perdidaCasino, 
+                            LocalDateTime.now());
+                    
+                    apuestaDAO.registrarApuesta(apuesta);
+                } else {
+                    vistaJuego.setJblResultado("PERDISTE!!", Color.RED);
+                    double nuevoSaldo = saldoActual - montoApostado;
+
                     usuario.setSaldo(nuevoSaldo);
                     usuarioDAO.actualizarSaldo(nuevoSaldo, usuario);
 
                     vistaJuego.setJblSaldo(String.valueOf(nuevoSaldo));
                     
-                    double perdida = montoApostado * -35;
+                    double gananciaCasino = montoApostado;
                     
-                    Apuesta apuesta = new Apuesta(usuario.getNombre(), numeroApostado, numeroGanador, montoApostado, perdida, LocalDateTime.now());
-                    
-                    apuestaDAO.registrarApuesta(apuesta);
-
-                    vistaJuego.setJblResultado("GANASTE!!!", Color.yellow);
-                }else {
-                    double nuevoSaldo2 = saldoActual - montoApostado;
-
-                    usuario.setSaldo(nuevoSaldo2);
-
-                    usuarioDAO.actualizarSaldo(nuevoSaldo2, usuario);
-
-                    vistaJuego.setJblSaldo(String.valueOf(nuevoSaldo2));
-                    
-                    double ganancia = montoApostado;
-                    
-                    Apuesta apuesta = new Apuesta(usuario.getNombre(), numeroApostado, numeroGanador, montoApostado, ganancia, LocalDateTime.now());
+                    Apuesta apuesta = new Apuesta(
+                            usuario.getNombre(),
+                            numeroApostado,
+                            numeroGanador,
+                            montoApostado, 
+                            gananciaCasino, 
+                            LocalDateTime.now());
                     
                     apuestaDAO.registrarApuesta(apuesta);
-
-                    vistaJuego.setJblResultado("PERDISTE!!", Color.RED);
                 }
             }
         });
@@ -173,34 +163,33 @@ public class ControladorJuego implements ActionListener{
     
     
     public void recargar() {  
+        String txtRecarga = JOptionPane.showInputDialog("Ingresa el monto a recargar.");
+
+        if (txtRecarga == null) {
+            return;
+        }
+        
+        double recarga = 0;
+        
         try {
-            String txtRecarga = JOptionPane.showInputDialog("Ingresa el monto a recargar.");
-            
-            if (txtRecarga == null) {
-                return;
-            }
-            
-            double recarga = Double.parseDouble(txtRecarga);
-            
-            if (recarga > 0) {
-                double nuevoSaldo = usuario.getSaldo() + recarga;
-                
-                vistaJuego.setJblSaldo(String.valueOf(nuevoSaldo));
-                
-                usuario.setSaldo(nuevoSaldo);
-                
-                usuarioDAO.actualizarSaldo((nuevoSaldo), usuario);
-                
-                System.out.println(usuario.getSaldo());
-            } else {
-                JOptionPane.showMessageDialog(vistaJuego, "Ingresa un monto valido de recarga.");
-            }
-            
-            
-        } catch (NumberFormatException e) {
+            recarga = Double.parseDouble(txtRecarga);
+        } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(vistaJuego, "Ingresa un numero valido!.");
         }
+        
+
+        if (recarga > 0) {
+            double nuevoSaldo = usuario.getSaldo() + recarga;
+
+            vistaJuego.setJblSaldo(String.valueOf(nuevoSaldo));
+
+            usuario.setSaldo(nuevoSaldo);
+
+            usuarioDAO.actualizarSaldo((nuevoSaldo), usuario);
+
+            System.out.println(usuario.getSaldo());
+        } else {
+            JOptionPane.showMessageDialog(vistaJuego, "Ingresa un monto valido de recarga.");
+        }
     }
-    
-    
 }

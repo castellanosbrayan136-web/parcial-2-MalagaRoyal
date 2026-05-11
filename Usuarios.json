@@ -1,18 +1,20 @@
 [
   {
-    "nombre": "Brayan Castellanos",
-    "contraseña": "1234",
+    "nombre": "Brayan C",
+    "contraseña": "wow123",
     "cedula": "1096",
-    "telefono": "321",
-    "direccion": "calle 10",
-    "saldo": 121700.0
+    "telefono": "314",
+    "direccion": "vereda B",
+    "rol": "ADMIN",
+    "saldo": 0.0
   },
   {
-    "nombre": "Admin",
-    "contraseña": "admin",
-    "cedula": "123",
-    "telefono": "123",
-    "direccion": "123",
+    "nombre": "juan",
+    "contraseña": "1234",
+    "cedula": "139",
+    "telefono": "364",
+    "direccion": "calle 10",
+    "rol": "USUARIO",
     "saldo": 0.0
   }
 ]

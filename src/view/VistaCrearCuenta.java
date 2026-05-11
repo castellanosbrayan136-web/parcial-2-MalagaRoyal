@@ -5,9 +5,6 @@
 package view;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 
 /**
  *
@@ -85,7 +82,7 @@ public class VistaCrearCuenta extends javax.swing.JFrame {
 
         txtContraseña.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Crear cuenta");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -113,7 +110,7 @@ public class VistaCrearCuenta extends javax.swing.JFrame {
                         .addComponent(btnCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1)))
                 .addContainerGap(310, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -216,26 +213,6 @@ public class VistaCrearCuenta extends javax.swing.JFrame {
 
     public void setJblMensajeNombreUsuario(String jblMensajeNombreUsuario) {
         this.jblMensajeNombreUsuario.setText(jblMensajeNombreUsuario);
-    }
-
-    public void setTxtCedula(String txtCedula) {
-        this.txtCedula.setText(txtCedula);
-    }
-
-    public void setTxtContraseña(String txtContraseña) {
-        this.txtContraseña.setText(txtContraseña);
-    }
-
-    public void setTxtDireccion(String txtDireccion) {
-        this.txtDireccion.setText(txtDireccion);
-    }
-
-    public void setTxtNombreUsuario(String txtNombreUsuario) {
-        this.txtNombreUsuario.setText(txtNombreUsuario);
-    }
-
-    public void setTxtTelefono(String txtTelefono) {
-        this.txtTelefono.setText(txtTelefono);
     }
     
     

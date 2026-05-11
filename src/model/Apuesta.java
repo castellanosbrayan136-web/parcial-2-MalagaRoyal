@@ -30,59 +30,28 @@ public class Apuesta {
         this.gananciaPerdida = gananciaPerdida;
         this.horaApuesta = horaApuesta;
     }
-    
-    
 
     public String getNombreUsuario() {
         return nombreUsuario;
-    }
-
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
     }
 
     public int getNumeroApostado() {
         return numeroApostado;
     }
 
-    public void setNumeroApostado(int numeroApostado) {
-        this.numeroApostado = numeroApostado;
-    }
-
     public int getNumeroGanador() {
         return numeroGanador;
-    }
-
-    public void setNumeroGanador(int numeroGanador) {
-        this.numeroGanador = numeroGanador;
     }
 
     public double getMontoApostado() {
         return montoApostado;
     }
 
-    public void setMontoApodtado(double montoApodtado) {
-        this.montoApostado = montoApodtado;
-    }
-
     public double getGananciaPerdida() {
         return gananciaPerdida;
     }
 
-    public void setGananciaPerdida(double gananciaPerdida) {
-        this.gananciaPerdida = gananciaPerdida;
-    }
-
     public LocalDateTime getHoraApuesta() {
         return horaApuesta;
-    }
-
-    public void setHoraApuesta(LocalDateTime horaApuesta) {
-        this.horaApuesta = horaApuesta;
-    }
-
-    @Override
-    public String toString() {
-        return "Apuesta{" + "nombreUsuario=" + nombreUsuario + ", numeroApostado=" + numeroApostado + ", numeroGanador=" + numeroGanador + ", montoApodtado=" + montoApostado + ", gananciaPerdida=" + gananciaPerdida + '}';
     }
 }

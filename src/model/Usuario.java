@@ -14,17 +14,19 @@ public class Usuario {
     private String cedula;
     private String telefono;
     private String direccion;
+    private String rol;
     private double saldo;
 
     public Usuario() {
     }
 
     public Usuario(String nombre, String contraseña, String cedula, String telefono, String direccion) {
-        this.nombre = nombre;
-        this.contraseña = contraseña;
-        this.cedula = cedula;
-        this.telefono = telefono;
-        this.direccion = direccion;
+        setNombre(nombre);
+        setContraseña(contraseña);
+        setCedula(cedula);
+        setTelefono(telefono);
+        setDireccion(direccion);
+        this.rol = "USUARIO";
         this.saldo = 0;
     }
 
@@ -52,8 +54,14 @@ public class Usuario {
         return saldo;
     }
 
+    public String getRol() {
+        return rol;
+    }
+
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        if (nombre != null) {
+            this.nombre = nombre;
+        }
     }
 
     public void setContraseña(String contraseña) {
@@ -85,6 +93,4 @@ public class Usuario {
             this.saldo = saldo;
         }
     }
-    
-    
 }

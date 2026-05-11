@@ -18,11 +18,11 @@ import view.VistaCrearCuenta;
  *
  * @author UIS
  */
-public class ControladorVistaCrearCuenta implements ActionListener{
+public class ControladorCrearCuenta implements ActionListener{
     private UsuarioDAO usuarioDAO;
     private VistaCrearCuenta vistaCrearCuenta;
 
-    public ControladorVistaCrearCuenta(UsuarioDAO usuarioDAO, VistaCrearCuenta vistaCrearCuenta) {
+    public ControladorCrearCuenta(UsuarioDAO usuarioDAO, VistaCrearCuenta vistaCrearCuenta) {
         this.usuarioDAO = usuarioDAO;
         this.vistaCrearCuenta = vistaCrearCuenta;
         activarBotones();

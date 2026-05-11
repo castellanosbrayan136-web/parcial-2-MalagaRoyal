@@ -13,10 +13,11 @@ import view.VistaLogin;
  *
  * @author UIS
  */
-public class ControladorVistaLogin implements ActionListener{
-    private VistaLogin vistaLogin;
 
-    public ControladorVistaLogin(VistaLogin vistaLogin) {
+public class ControladorLogin implements ActionListener{
+    private final VistaLogin vistaLogin;
+
+    public ControladorLogin(VistaLogin vistaLogin) {
         this.vistaLogin = vistaLogin;
         activarBotones();
     }

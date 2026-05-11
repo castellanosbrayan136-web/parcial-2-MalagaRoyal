@@ -6,9 +6,10 @@ package view;
 
 import controller.ControladorApuesta;
 import controller.ControladorJuego;
-import controller.ControladorVistaCrearCuenta;
-import controller.ControladorVistaIniciarSesion;
-import controller.ControladorVistaLogin;
+import controller.ControladorCrearCuenta;
+import controller.ControladorIniciarSesion;
+import controller.ControladorLogin;
+import javax.swing.JFrame;
 import model.ApuestaDAO;
 import model.Usuario;
 import model.UsuarioDAO;
@@ -18,53 +19,58 @@ import model.UsuarioDAO;
  * @author UIS
  */
 public class ScreenManager {
+    public static ApuestaDAO apuestaDAO = new ApuestaDAO();
+    public static UsuarioDAO usuarioDAO = new UsuarioDAO();
+    
     public static void abrirLogin() {
         VistaLogin vistaLogin = new VistaLogin();
+        configurarVentana(vistaLogin);
         
-        new ControladorVistaLogin(vistaLogin);
+        new ControladorLogin(vistaLogin);
         
         vistaLogin.setVisible(true);
     }
     
     public static void cerrarLogin(VistaLogin vistaLogin) {
-        vistaLogin.setVisible(false);
+        vistaLogin.dispose();
     }
     
     public static void abrirCrearCuenta(VistaLogin vistaLogin) {
         cerrarLogin(vistaLogin);
-        VistaCrearCuenta vistaCrearCuenta = new VistaCrearCuenta();
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
         
-        new ControladorVistaCrearCuenta(usuarioDAO, vistaCrearCuenta);
+        VistaCrearCuenta vistaCrearCuenta = new VistaCrearCuenta();
+        configurarVentana(vistaLogin);
+        
+        new ControladorCrearCuenta(usuarioDAO, vistaCrearCuenta);
         
         vistaCrearCuenta.setVisible(true);
     }
     
     public static void cerrarCrearCuenta(VistaCrearCuenta vistaCrearCuenta) {
-        vistaCrearCuenta.setVisible(false);
+        vistaCrearCuenta.dispose();
         abrirLogin();
     }
     
     public static void abrirIniciarSesion(VistaLogin vistaLogin) {
         cerrarLogin(vistaLogin);
-        VistaIniciarSesion vistaIniciarSesion = new VistaIniciarSesion();
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
         
-        new ControladorVistaIniciarSesion(vistaIniciarSesion, usuarioDAO);
+        VistaIniciarSesion vistaIniciarSesion = new VistaIniciarSesion();
+        configurarVentana(vistaLogin);
+        
+        new ControladorIniciarSesion(vistaIniciarSesion, usuarioDAO);
         
         vistaIniciarSesion.setVisible(true);
     }
     
     public static void cerrarIniciarSesion(VistaIniciarSesion vistaIniciarSesion) {
-        vistaIniciarSesion.setVisible(false);
-        abrirLogin();
+        vistaIniciarSesion.dispose();
     }
     
     public static void abrirJuego(VistaIniciarSesion vistaIniciarSesion, Usuario usuario) {
         vistaIniciarSesion.setVisible(false);
+        
         VistaJuego vistaJuego = new VistaJuego();
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
-        ApuestaDAO apuestaDAO = new ApuestaDAO();
+        configurarVentana(vistaJuego);
         
         new ControladorJuego(usuario, vistaJuego, usuarioDAO, apuestaDAO);
         
@@ -77,10 +83,12 @@ public class ScreenManager {
     }
     
     public static void abrirHistorialApuestas(VistaIniciarSesion vistaIniciarSesion) {
-        vistaIniciarSesion.setVisible(false);
+        cerrarIniciarSesion(vistaIniciarSesion);
+        
         VistaHistorialCasino vistaHistorial = new VistaHistorialCasino();
-        ApuestaDAO apuestaDAO = new ApuestaDAO();
-        ControladorApuesta controladorApuesta = new ControladorApuesta(vistaHistorial, apuestaDAO);
+        configurarVentana(vistaHistorial);
+        
+        new ControladorApuesta(vistaHistorial, apuestaDAO);
         
         vistaHistorial.setVisible(true);
     }
@@ -88,5 +96,10 @@ public class ScreenManager {
     public static void cerrarHistorialApuestas(VistaHistorialCasino vistaHistorial) {
         vistaHistorial.dispose();
         abrirLogin();
+    }
+    
+    private static void configurarVentana(JFrame vista) {
+        vista.setSize(800,600);
+        vista.setLocationRelativeTo(null);
     }
 }

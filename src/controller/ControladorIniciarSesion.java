@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import javax.swing.JOptionPane;
 import model.Usuario;
 import model.UsuarioDAO;
 import view.ScreenManager;
@@ -18,14 +17,18 @@ import view.VistaIniciarSesion;
  *
  * @author UIS
  */
-public class ControladorVistaIniciarSesion implements ActionListener{
-    private VistaIniciarSesion vistaIniciarSesion;
-    private UsuarioDAO usuarioDAO;
+public class ControladorIniciarSesion implements ActionListener{
+    private final VistaIniciarSesion vistaIniciarSesion;
+    private final UsuarioDAO usuarioDAO;
 
-    public ControladorVistaIniciarSesion(VistaIniciarSesion vistaIniciarSesion, UsuarioDAO usuarioDAO) {
+    public ControladorIniciarSesion(VistaIniciarSesion vistaIniciarSesion, UsuarioDAO usuarioDAO) {
         this.vistaIniciarSesion = vistaIniciarSesion;
         this.usuarioDAO = usuarioDAO;
         activarBotones();
+        limpiarMensajes();
+    }
+    
+    public void limpiarMensajes() {
         vistaIniciarSesion.setJblMensajeContraseña("");
     }
     
@@ -33,11 +36,13 @@ public class ControladorVistaIniciarSesion implements ActionListener{
         vistaIniciarSesion.getBtnIniciarSesion().addActionListener(this);
         funcionBotonX();
     }
+    
     public void funcionBotonX() {
         vistaIniciarSesion.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 ScreenManager.cerrarIniciarSesion(vistaIniciarSesion);
+                ScreenManager.abrirLogin();
             }
         });
     }
@@ -49,41 +54,18 @@ public class ControladorVistaIniciarSesion implements ActionListener{
         }
     }
     
-    public Usuario iniciarSesion() {
-        Usuario usuario = usuarioDAO.verificarInicioDeSesion(leerUsuario(), leerContraseña());
+    public void abrirUsuario() {
+        Usuario usuario = usuarioDAO.verificarInicioDeSesion(vistaIniciarSesion.getTxtUsuario(), vistaIniciarSesion.getTxtContraseña());
         
         if (usuario == null) {
             vistaIniciarSesion.setJblMensajeContraseña("Usuario o contraseña incorrecta.");
-            return null;
-        }
-        
-        return usuario;
-        
-    }
-    
-    public void abrirUsuario() {
-        Usuario usuario = iniciarSesion();
-        
-        if (usuario == null) {
             return;
         }
         
-        if (usuario.getNombre().equals("Admin") && usuario.getContraseña().equals("admin")) {
+        if (usuario.getRol().equals("ADMIN")) {
             ScreenManager.abrirHistorialApuestas(vistaIniciarSesion);
         } else {
             ScreenManager.abrirJuego(vistaIniciarSesion, usuario);
         }
-        
-        
     }
-    
-    public String leerUsuario() {
-        return vistaIniciarSesion.getTxtUsuario();
-    }
-    
-    public String leerContraseña() {
-        return vistaIniciarSesion.getTxtContraseña();
-    }
-    
-    
 }

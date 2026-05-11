@@ -146,14 +146,6 @@ public class VistaIniciarSesion extends javax.swing.JFrame {
         return txtUsuario.getText();
     }
 
-    public void setTxtContraseña(String txtContraseña) {
-        this.txtContraseña.setText(txtContraseña);
-    }
-
-    public void setTxtUsuario(String txtUsuario) {
-        this.txtUsuario.setText(txtUsuario);
-    }
-
     public void setJblMensajeContraseña(String jblMensajeContraseña) {
         this.jblMensajeContraseña.setText(jblMensajeContraseña);
     }
